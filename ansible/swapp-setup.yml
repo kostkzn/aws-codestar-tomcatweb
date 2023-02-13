@@ -59,7 +59,7 @@
         block:
          - name: Deploy swapp artifact
            copy:
-             src: "/tmp/{{artifactid}}-v{{BUILD_ID}}-{{BUILD_TIMESTAMP}}--ROOT.war"
+             src: "/tmp/{{NEXUS_ART_ID}}-v{{BUILD_ID}}-{{BUILD_TIMESTAMP}}--ROOT.war"
              # src: /tmp/swapp-2
              dest: /var/lib/tomcat9/webapps/ROOT.war
              remote_src: yes
