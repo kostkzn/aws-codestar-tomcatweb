@@ -7,7 +7,7 @@
   tasks:
     - name: Download latest swapp.war from nexus
       get_url:
-        url: "http://{{NEXUS_USER}}:{{NEXUS_PASS}}@{{NEXUSIP}}:8081/repository/{{RELEASE_REPO}}/{{NEXUS_GROUP_ID}}/{{artifactid}}/v{{BUILD_ID}}-{{BUILD_TIMESTAMP}}--ROOT/{{artifactid}}-v{{BUILD_ID}}-{{BUILD_TIMESTAMP}}--ROOT.war"
+        url: "http://{{NEXUS_USER}}:{{NEXUS_PASS}}@{{NEXUSIP}}:8081/repository/{{RELEASE_REPO}}/{{NEXUS_GROUP_ID}}/{{NEXUS_ART_ID}}/v{{BUILD_ID}}-{{BUILD_TIMESTAMP}}--ROOT/{{NEXUS_ART_ID}}-v{{BUILD_ID}}-{{BUILD_TIMESTAMP}}--ROOT.war"
         dest: "/tmp/{{NEXUS_ART_ID}}-v{{BUILD_ID}}-{{BUILD_TIMESTAMP}}--ROOT.war"
       register: wardeploy
       tags:
