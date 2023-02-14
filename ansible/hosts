@@ -1,9 +1,10 @@
 [ansible_control]
-control ansible_host=192.168.56.10
+control ansible_host=172.31.10.10
 
 [webservers] 
-tomcat9 ansible_host=192.168.56.11
+tomcat ansible_host=172.31.10.11
 
-[jenkins_docker] 
-jenk ansible_host=192.168.56.13
-agent ansible_host=192.168.56.12
+[dockers] 
+agent ansible_host=172.31.10.12
+nexus ansible_host=172.31.10.13
+jenkins ansible_host=172.31.10.20
