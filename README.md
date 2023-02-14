@@ -1,2 +1,2 @@
-AWS CodeStar – a Simple Web Application (swapp)
+AWS CodeStar – Simple Web Application Deploy
 ==================================================
