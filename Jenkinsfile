@@ -24,6 +24,7 @@ pipeline {
         stage('Fetch code') {
             steps {
                 git credentialsId: 'GitHub-token', url: 'https://github.com/kostkzn/aws-codestar-tomcatweb.git', branch: 'main'
+                stash includes:'**/ansible/**', name: 'source'
             }
         }
         
@@ -66,9 +67,9 @@ pipeline {
             steps {
                 echo 'STAGE: Starting deploying artifact to Tomcat9...'
                 //ansiblePlaybook disableHostKeyChecking: true, installation: 'Ansible', inventory: 'ansible/hosts', playbook: 'ansible/swapp-setup.yml'
-            sh "hostname"
             sh "hostname -i"
             echo "Current folder is ${WORKSPACE}"
+            unstash 'source'
             sh "ls -l"
             sh 'ansible-playbook ansible/swapp-setup.yml -i ansible/hosts -e NEXUS_USER=$NEXUS_USER -e NEXUS_PASS=$NEXUS_PASS -e NEXUSIP=$NEXUSIP -e RELEASE_REPO=$RELEASE_REPO -e NEXUS_GROUP_ID=$NEXUS_GROUP_ID -e NEXUS_ART_ID=$NEXUS_ART_ID -e BUILD_ID=$BUILD_ID -e BUILD_TIMESTAMP=$BUILD_TIMESTAMP'
             }
