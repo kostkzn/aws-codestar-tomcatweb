@@ -21,12 +21,12 @@ pipeline {
 
     stages{
     
-        stage('Fetch code') {
-            steps {
-                git credentialsId: 'GitHub-token', url: 'https://github.com/kostkzn/aws-codestar-tomcatweb.git', branch: 'main'
-                stash includes:'**/ansible/**', name: 'source'
-            }
-        }
+        // stage('Fetch code') {
+        //     steps {
+        //         git credentialsId: 'GitHub-token', url: 'https://github.com/kostkzn/aws-codestar-tomcatweb.git', branch: 'main'
+        //         stash includes:'**/ansible/**', name: 'source'
+        //     }
+        // }
         
         stage('Build'){
             steps {
