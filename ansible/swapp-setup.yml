@@ -32,8 +32,7 @@
       - name: Archive ROOT dir with timestamp
         archive:
           path: /var/lib/tomcat9/webapps
-          # dest: "/opt/ROOT_{{timestamp}}.tgz"
-          dest: "/opt/ROOT-0.tgz"
+          dest: "/tmp/ROOT_{{timestamp}}.tgz"         
         when: artifact_stat.stat.exists
         register: archive_info
         tags:
@@ -59,8 +58,7 @@
         block:
          - name: Deploy swapp artifact
            copy:
-             src: "/tmp/{{NEXUS_ART_ID}}-v{{BUILD_ID}}-{{BUILD_TIMESTAMP}}--ROOT.war"
-             # src: /tmp/swapp-2
+             src: "/tmp/{{NEXUS_ART_ID}}-v{{BUILD_ID}}-{{BUILD_TIMESTAMP}}--ROOT.war"             
              dest: /var/lib/tomcat9/webapps/ROOT.war
              remote_src: yes
            register: deploy_info

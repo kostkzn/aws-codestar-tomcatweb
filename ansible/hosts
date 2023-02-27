@@ -1,16 +1,20 @@
 [ansible_control]
-control ansible_host=172.31.10.10 ansible_private_key_file=/home/ubuntu/.ssh/ci-swapp.pem
+control ansible_host=172.31.10.10
 
 [webservers] 
-tomcat ansible_host=172.31.10.11 ansible_private_key_file=/home/ubuntu/.ssh/ci-swapp.pem
+tomcat ansible_host=172.31.10.11
 
 [agents]
-agent ansible_host=172.31.10.12 ansible_private_key_file=/home/ubuntu/.ssh/ci-swapp.pem
+agent ansible_host=172.31.10.12
 
 [tools]
-nexus ansible_host=172.31.10.13 ansible_private_key_file=/home/ubuntu/.ssh/ci-swapp.pem
-jenkins ansible_host=172.31.10.20 ansible_private_key_file=/home/ubuntu/.ssh/ci-swapp.pem
+nexus ansible_host=172.31.10.13
+jenkins ansible_host=172.31.10.20
 
 [docker:children] 
 tools
 agents
+
+[all:vars]
+ansible_user=ubuntu
+ansible_private_key_file=/home/ubuntu/.ssh/ci-swapp.pem
