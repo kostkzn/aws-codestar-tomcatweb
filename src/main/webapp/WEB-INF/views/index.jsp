@@ -32,7 +32,7 @@
           
       <div class="text">
           <h1>Congratulations!</h1>
-          <h2>A new commit passed</h2>
+          <h2>28/02/2023</h2>
         </div>
       </div>
     </div>
